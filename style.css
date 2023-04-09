@@ -1,0 +1,102 @@
+body{
+  	font-family:sans-serif;
+}
+*{
+	box-sizing:border-box;
+}
+
+.background {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.foreground {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.middleground {
+	position: relative;
+	height: 100px;
+}
+
+#templates {
+	display: none;
+}
+
+.person {
+	position: absolute;
+	&.flip{
+	    transform:scalex(-1);
+	}
+}
+
+.abs{
+	position: absolute;
+}
+
+.instructions {
+	display: none;
+	&.show {
+		display: block;
+	}
+}
+
+#root{
+	width:300px;
+}
+
+.post{
+	padding:2em;
+	background:#fff;
+	box-shadow:#000b 0 0 10px 10px;
+	position:absolute;
+}
+
+.container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-flow:column nowrap;
+	height:80vh;
+	min-width:300px;
+}
+
+
+.runOff{
+	transition:1s;
+	transform:translatey(-100px);
+	opacity:0;
+}
+
+.streetTransition{
+  	perspective:500px;
+	width:100%;
+	transform:translate(2px, 0px);
+	position:relative;
+	height:142px;
+	$transitionTime:0.5s;
+	transition:$transitionTime;
+	transform-style: preserve-3d;
+	.streetAssembly{
+		transform:rotateY(0deg) translatex(0) translatez(0);
+		transform-style: preserve-3d;
+		transition:opacity inherit;
+		transition:$transitionTime;
+		transform-origin:center;
+	}
+	.street{
+		transform:rotateY(0deg) translatex(0) translatez(0);
+		//transition:0.5s;
+		transform-origin:center;
+		position:absolute;
+		transform-style: preserve-3d;
+		transition:opacity $transitionTime cubic-bezier(0.33, 1, 0.68, 1);
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
+	.streetTo{
+		opacity:0;
+	}
+}
+
+**scss file**
